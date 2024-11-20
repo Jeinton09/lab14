@@ -19,6 +19,6 @@ public class HomeController {
     @GetMapping("/admin")
     @PreAuthorize("hasAuthority('ADMIN')")
     public String admin(){
-        return "Admin";  // Devuelve la vista "Admin"
+        return "Admin";
     }
 }
