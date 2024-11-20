@@ -3,6 +3,7 @@ package com.example.lab14.Controllers;
 import com.example.lab14.Models.Producto;
 import com.example.lab14.Service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ public class ProductoController {
     }
 
     @GetMapping("/nuevo")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String mostrarFormularioNuevoProducto(Model model) {
         model.addAttribute("producto", new Producto());
         return "productos/formulario";
